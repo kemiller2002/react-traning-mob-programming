@@ -1,29 +1,89 @@
 <html>
-<head>
-  <style>
-    
-    
-    
-  </style>
-  
-  
- </head>
-<body>
-  <data-training>
-    <data-training-course>https://blog.glitch.com/post/react-starter-kit</data-training-course>
-    <data-training-course>https://www.youtube.com/watch?v=w7ejDZ8SWv8&ab_channel=TraversyMedia</data-training-course>
-    <data-training-course>https://www.youtube.com/watch?v=novnyCaa7To&ab_channel=Fireship</data-training-course>
+  <head>
+    <style>
+      data-course {
+        display: block;
+        padding-bottom: 1em;
+      }
 
-    <data-training-course>https://www.youtube.com/watch?v=U3O3MO2exkk&ab_channel=DailyTuition</data-training-course>
+      data-note {
+        display: block;
+      }
+      data-training {
+      }
 
-    <data-training-course>https://www.thestrangeloop.com/2018/reactive-programming-a-better-way-to-write-frontend-applications.html</data-training-course>
- </data-training>
-  
-  
-  <data-debug>
-  
-      <data-video>https://www.youtube.com/watch?v=8QaRKXJYxpI&ab_channel=StrangeLoopConference</data-video>
-  </data-debug>
-  
-</body>
+      body {
+        display: flex;
+        flex-direction: row;
+      }
+      div {
+        width: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <data-training>
+      <data-course name="glitch-starter-kit"
+        ><a target="none" href="https://blog.glitch.com/post/react-starter-kit"
+          >Starter kit from Glitch (15 - 20 minutes)</a
+        >
+        <data-note
+          >This is a good intro to react. It talks about the basic parts of the
+          application along with a quick overview of webpack etc. The first 3
+          videos are the most important as we aren't using redux which is video
+          4 on. You might want to check it out anyway since it is a nice
+          introduction to it and you can at least understand what it is.
+        </data-note>
+      </data-course>
+      <data-course name="start-react"
+        ><a
+          target="none" href="https://www.youtube.com/watch?v=w7ejDZ8SWv8&ab_channel=TraversyMedia"
+          >React Crash Course (108 minutes)</a
+        ></data-course
+      >
+      <data-course name="react router update">
+        <a target="none" href="https://www.youtube.com/watch?v=k2Zk5cbiZhg">
+          This is a react router update for v6.
+        </a>
+        <data-note>This is a much more in depth review of React.</data-note>
+      </data-course>
+      <data-course name="react-query-100-seconds"
+        ><a
+          target="none" href="https://www.youtube.com/watch?v=novnyCaa7To&ab_channel=Fireship"
+          >React Query in 100 seconds</a
+        >
+        <data-note
+          >This is an overview of React Query which will be used to data fetch,
+          cache etc. (2:32 minutes)</data-note
+        >
+      </data-course>
+
+      <data-course
+        ><a
+          target="none" href="https://www.youtube.com/watch?v=U3O3MO2exkk&ab_channel=DailyTuition"
+          >React Query in 15 minutes</a
+        >
+        <data-note
+          >This is a more in depth look at react query. It's a little dry, but
+          shows how to use it. (14 minutes)</data-note
+        >
+      </data-course>
+
+      <data-course
+        ><a
+          target="none" href="https://www.thestrangeloop.com/2018/reactive-programming-a-better-way-to-write-frontend-applications.html"
+          >REACTIVE PROGRAMMING: A BETTER WAY TO WRITE FRONTEND APPLICATIONS</a
+        >
+        <data-note>
+          A look at how reactive programming works.  Uses redux as an example, but explain the history of patterns and how they are applied to react. (40 minutes)
+        </data-note>
+        </data-course
+      >
+      
+    </data-training>
+
+    <div></div>
+    </data-debug>
+  </body>
 </html>
