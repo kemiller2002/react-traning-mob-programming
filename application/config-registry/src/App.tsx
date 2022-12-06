@@ -1,20 +1,54 @@
 import React from "react";
 import "./App.css";
 
-// interface ConfigRegistry {
-//   code: string;
-//   description: string;
-//   value: boolean;
-// }
+export class ConfigRegistry {
+  category?: string;
+  code?: string;
+  description?: string;
+  value?: Object;
+}
+
+const categories: ConfigRegistry[] = [
+  {
+    category: "Applications",
+    code: "ConfigRegistryTreeMode",
+    description: "Config registry edit tree mode",
+    value: false,
+  },
+  {
+    category: "Applications",
+    code: "IPLockoutMessageText",
+    description: "Message to display when IP address is locked out of application",
+    value: "Your IP Address has been locked out. Please try again",
+  },
+  {
+    category: "Applications",
+    code: "MaxUserNameAttempts",
+    description: "Number of attempts to allow IP address to enter username",
+    value: "10",
+  },
+  {
+    category: "LetterTemplating",
+    code: "LetterTemplates",
+    description: "Toggle Letter Templates",
+    value: true,
+  },
+  {
+    category: "LetterTemplating",
+    code: "LetterTemplatesDefaultCss",
+    description: "Sets the default css for the margin on all new letters",
+    value: "body { margin: 1in }",
+  },
+];
 
 const App = () => {
-  // const { data, status } = useQuery(["registry", getRegistryValues(), options]);
+  // const { data, status } = useQuery(["registry"], getRegistryValues(), options]);
 
   // const { mutate, mutateAsync } = useMutation(setSomeValue(), options)
 
   // const someProperty = useMemo(() => {
   //   return compileSomeProperty()
-  // })
+  // }, [])
 
   // useEffect(() => {
   //   getSomethingWhenPropsChanges(props)
@@ -28,18 +62,41 @@ const App = () => {
   //   doSomethingEveryRender()
   // })
 
+  const setCategory = (category: ConfigRegistry) => {
+    alert(category.category);
+  };
+
   return (
-    <>
+    <div>
       <table>
         <tr>
           <td className="navigation">
             <table>
-              <tr>
-                <td>Applications</td>
-                <td>Letter Templating</td>
-              </tr>
+              {categories.map((category: ConfigRegistry) => {
+                return (
+                  <tr>
+                    <td>
+                      <button onClick={() => setCategory(category)}>{category.category}</button>
+                    </td>
+                  </tr>
+                );
+              })}
+
+              {/* {Object.keys(categoriesParsed).map((cat) => {
+                return (
+                  <tr>
+                    <td>{cat}
+                      <br />
+                        {
+                          categoriesParsed[cat].map(property: => property.name)
+                        }
+                    </td>
+                  </tr>
+                );
+              })} */}
             </table>
           </td>
+
           <td className="content">
             <table>
               <tr>
@@ -49,20 +106,20 @@ const App = () => {
               </tr>
               <tr>
                 <td>
-                  <input type="text" />
+                  <input id="configCode" type="text" />
                 </td>
                 <td>
-                  <input type="text" />
+                  <input id="configDescription" type="text" />
                 </td>
                 <td>
-                  <input type="text" />
+                  <input id="configValue" type="text" />
                 </td>
               </tr>
             </table>
           </td>
         </tr>
       </table>
-    </>
+    </div>
   );
 };
 
