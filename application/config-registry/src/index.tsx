@@ -8,7 +8,6 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <>
-    <span>Test Text</span>
     <React.StrictMode>
       <App />
     </React.StrictMode>

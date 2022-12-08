@@ -1,5 +1,8 @@
-import React from "react";
 import "./App.css";
+
+import * as React from 'react';
+import Button from '@mui/material/Button';
+
 
 export class ConfigRegistry {
   category?: string;
@@ -76,24 +79,12 @@ const App = () => {
                 return (
                   <tr>
                     <td>
-                      <button onClick={() => setCategory(category)}>{category.category}</button>
+                      <Button onClick={() => setCategory(category)}>{category.code}</Button>
                     </td>
                   </tr>
                 );
               })}
-
-              {/* {Object.keys(categoriesParsed).map((cat) => {
-                return (
-                  <tr>
-                    <td>{cat}
-                      <br />
-                        {
-                          categoriesParsed[cat].map(property: => property.name)
-                        }
-                    </td>
-                  </tr>
-                );
-              })} */}
+           
             </table>
           </td>
 

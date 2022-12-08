@@ -1,0 +1,34 @@
+{
+  "Applications": [
+    {
+      "code": "ConfigRegistryTreeMode",
+      "description": "Config registry edit tree mode",
+      "value": false
+    },
+
+    {
+      "code": "IPLockoutMessageText",
+      "description": "Message to display when IP address is locked out of application",
+      "value": "Your IP Address has been locked out. Please try again"
+    },
+
+    {
+      "code": "MaxUserNameAttempts",
+      "description": "Number of attempts to allow IP address to enter username",
+      "value": "10"
+    }
+  ],
+  "LetterTemplating": [
+    {
+      "code": "LetterTemplates",
+      "description": "Toggle Letter Templates",
+      "value": true
+    },
+
+    {
+      "code": "LetterTemplatesDefaultCss",
+      "description": "Sets the default css for the margin on all new letters",
+      "value": "body { margin: 1in }"
+    }
+  ]
+}
