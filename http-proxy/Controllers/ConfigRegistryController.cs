@@ -19,6 +19,22 @@ namespace http_proxy.Controllers
             _logger = logger;
         }
 
+      [HttpPost]
+      public ConfigRegistryItem Post (ConfigRegistryItem item) {
+        return item;
+      }
+
+      [HttpPut]
+      public ConfigRegistryItem Put (ConfigRegistryItem item) {
+        return item;
+      }
+
+      [HttpDelete]
+      public ConfigRegistryItem Delete (ConfigRegistryItem item) {
+        return item;
+      }
+
+
         [HttpGet]
         public IEnumerable<ConfigRegistryItem> Get()
         {
