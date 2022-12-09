@@ -1,48 +1,8 @@
 import "./App.css";
-
-import * as React from 'react';
-import Button from '@mui/material/Button';
-
-
-export class ConfigRegistry {
-  category?: string;
-  code?: string;
-  description?: string;
-  value?: Object;
-}
-
-const categories: ConfigRegistry[] = [
-  {
-    category: "Applications",
-    code: "ConfigRegistryTreeMode",
-    description: "Config registry edit tree mode",
-    value: false,
-  },
-  {
-    category: "Applications",
-    code: "IPLockoutMessageText",
-    description: "Message to display when IP address is locked out of application",
-    value: "Your IP Address has been locked out. Please try again",
-  },
-  {
-    category: "Applications",
-    code: "MaxUserNameAttempts",
-    description: "Number of attempts to allow IP address to enter username",
-    value: "10",
-  },
-  {
-    category: "LetterTemplating",
-    code: "LetterTemplates",
-    description: "Toggle Letter Templates",
-    value: true,
-  },
-  {
-    category: "LetterTemplating",
-    code: "LetterTemplatesDefaultCss",
-    description: "Sets the default css for the margin on all new letters",
-    value: "body { margin: 1in }",
-  },
-];
+import * as React from "react";
+import Button from "@mui/material/Button";
+import { ConfigRegistry, useConfigRegistry, useCreateConfigRegistry } from "./api/configRegistry";
+import { useState, SyntheticEvent } from "react";
 
 const App = () => {
   // const { data, status } = useQuery(["registry"], getRegistryValues(), options]);
@@ -65,8 +25,45 @@ const App = () => {
   //   doSomethingEveryRender()
   // })
 
+  const { categories } = useConfigRegistry();
+  const { mutateAsync, error, isError, isLoading, isSuccess } = useCreateConfigRegistry();
+
+  // const [currentStateValue, fnSetStateValue] = useState(initialStateValue?)
+  const [formData, setFormData] = useState({
+    code: "",
+    description: "",
+    value: "",
+  });
+
+  // FYI: different syntaxes for dealing with component state
+  // // class based syntax
+  // setState({ foo: 'bar' })
+
+  // // useState syntax
+  // setState({ ...state, foo: 'bar' })
+
   const setCategory = (category: ConfigRegistry) => {
     alert(category.category);
+  };
+
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const result = await mutateAsync({
+        ...formData,
+        category: "someCategory",
+      });
+    } catch (err) {
+      alert("There was an error!");
+    } finally {
+      alert("Posted data with great success!");
+    }
   };
 
   return (
@@ -79,12 +76,13 @@ const App = () => {
                 return (
                   <tr>
                     <td>
-                      <Button onClick={() => setCategory(category)}>{category.code}</Button>
+                      <Button color="primary" variant="contained" onClick={() => setCategory(category)}>
+                        {category.code}
+                      </Button>
                     </td>
                   </tr>
                 );
               })}
-           
             </table>
           </td>
 
@@ -97,13 +95,26 @@ const App = () => {
               </tr>
               <tr>
                 <td>
-                  <input id="configCode" type="text" />
+                  <input id="configCode" type="text" name="code" value={formData.code} onChange={handleChange} />
                 </td>
                 <td>
-                  <input id="configDescription" type="text" />
+                  <input
+                    id="configDescription"
+                    type="text"
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                  />
                 </td>
                 <td>
-                  <input id="configValue" type="text" />
+                  <input id="configValue" type="text" name="value" value={formData.value} onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Button color="success" variant="contained" onClick={handleSubmit}>
+                    Post
+                  </Button>
                 </td>
               </tr>
             </table>

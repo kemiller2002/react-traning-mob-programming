@@ -209,25 +209,28 @@
     ]
   },
   "packageFolders": {
-    "/Users/kevinmiller/.nuget/packages/": {}
+    "C:\\Users\\millerk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kevinmiller/Documents/GitHub/react-traning-mob-programming/http-proxy/http-proxy.csproj",
+      "projectUniqueName": "C:\\projects\\react-traning-mob-programming\\http-proxy\\http-proxy.csproj",
       "projectName": "http-proxy",
-      "projectPath": "/Users/kevinmiller/Documents/GitHub/react-traning-mob-programming/http-proxy/http-proxy.csproj",
-      "packagesPath": "/Users/kevinmiller/.nuget/packages/",
-      "outputPath": "/Users/kevinmiller/Documents/GitHub/react-traning-mob-programming/http-proxy/obj/",
+      "projectPath": "C:\\projects\\react-traning-mob-programming\\http-proxy\\http-proxy.csproj",
+      "packagesPath": "C:\\Users\\millerk\\.nuget\\packages\\",
+      "outputPath": "C:\\projects\\react-traning-mob-programming\\http-proxy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/kevinmiller/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\millerk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nexus.rendevops.com/repository/rennuget": {}
       },
       "frameworks": {
         "net5.0": {
@@ -261,12 +264,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.osx-x64",
-            "version": "[5.0.17, 5.0.17]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -275,7 +272,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -26,7 +26,12 @@ namespace http_proxy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors(o => o.AddPolicy("All", builder => 
+                builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+            ));
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -47,6 +52,7 @@ namespace http_proxy
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("All");
 
             app.UseAuthorization();
 
